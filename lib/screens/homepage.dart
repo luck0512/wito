@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wito_app/screens/views/siasa.dart';
 import 'package:wito_app/themes/colors.dart';
 import 'package:wito_app/screens/views/miradi.dart';
 import 'package:wito_app/screens/views/biashara.dart';
@@ -19,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     NyumbaniScreen(),
      const BiasharaSCreen(),
      const MiradiScreen(),
+     const SiasaScreen(),
      const MpangilioScreen(),
   ];
   @override
@@ -44,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.payments), label: 'Biashara'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.business_center), label: 'Miradi'),
-            // BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Siasa'),
+            BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Siasa'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings), label: 'Mpangilio'),
           ]),

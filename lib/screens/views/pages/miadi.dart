@@ -1,11 +1,38 @@
 import 'package:flutter/material.dart';
-
 import '../../../themes/colors.dart';
 
-class MiadiWidget extends StatelessWidget {
-  const MiadiWidget({
-    super.key,
-  });
+class MiadiWidget extends StatefulWidget {
+  const MiadiWidget({Key? key}) : super(key: key);
+
+  @override
+  _MiadiWidgetState createState() => _MiadiWidgetState();
+}
+
+class _MiadiWidgetState extends State<MiadiWidget> {
+  DateTime? selectedDate;
+  final _dateController = TextEditingController();
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2022),
+      lastDate: DateTime(2025),
+    );
+
+    if (pickedDate != null && pickedDate != selectedDate) {
+      setState(() {
+        selectedDate = pickedDate;
+        _dateController.text = pickedDate.toString();
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _dateController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +46,7 @@ class MiadiWidget extends StatelessWidget {
         ),
         const SizedBox(height: 16.0),
         const Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac quam eu lectus vestibulum feugiat vel ac nulla. Donec sodales dolor elit, ut pulvinar est aliquam eget. Nunc dapibus facilisis diam, non pretium justo molestie vel. Sed euismod, nisi et bibendum malesuada, mi mauris rutrum risus, eget hendrerit massa turpis quis lectus. Fusce a metus vel lacus dictum molestie vel a urna.',
+          ' molestie vel a urna.',
           style: TextStyle(
             fontSize: 10.0,
             fontWeight: FontWeight.bold,
@@ -47,14 +74,24 @@ class MiadiWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16.0),
+        TextFormField(
+          controller: _dateController,
+          readOnly: true,
+          onTap: () => _selectDate(context),
+          decoration: InputDecoration(
+            labelText: 'Select Date',
+            border: OutlineInputBorder(),
+          ),
+        ),
+        
+        const SizedBox(height: 16.0),
         SizedBox(
           height: 50,
           width: double.infinity,
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  Styles.primaryColor,
+              backgroundColor: Styles.primaryColor,
             ),
             child: const Text('Kamilisha'),
           ),

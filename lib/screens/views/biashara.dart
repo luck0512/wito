@@ -2,6 +2,7 @@
 import 'package:wito_app/screens/views/pages/binafsi.dart';
 import 'package:wito_app/screens/views/pages/taasisi.dart';
 import 'package:flutter/material.dart';
+import 'package:wito_app/themes/colors.dart';
 
 import '../../controllers/yaliojiriController.dart';
 import '../../controllers/featuredCardController.dart';
@@ -38,8 +39,11 @@ class _MiradiScreenState extends State<BiasharaSCreen> with SingleTickerProvider
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Styles.primaryColor,
           title: const Text('Biashara'),
           bottom: const TabBar(
+            indicatorColor: Colors.white,
+            
             tabs: [
               Tab(text: 'Taasisi'),
               Tab(text: 'Binafsi')

@@ -4,6 +4,7 @@ import 'package:wito_app/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
+import 'miadi.dart';
 import 'nunua_hisa.dart';
 
 class ProjectDetailDialog extends StatefulWidget {
@@ -18,6 +19,7 @@ class _ProjectDetailDialogState extends State<ProjectDetailDialog> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         backgroundColor: Styles.lightCOlor,
         elevation: 0,
@@ -57,7 +59,7 @@ class _ProjectDetailDialogState extends State<ProjectDetailDialog> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                                top: 5, left: 5, right: 5),
+                                top: 15, left: 5, right: 5),
                             child: Image.asset(
                               'assets/images/Houses_3.jpg',
                               height: 100,
@@ -83,7 +85,7 @@ class _ProjectDetailDialogState extends State<ProjectDetailDialog> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                                top: 5, left: 5, right: 5),
+                                top: 15, left: 5, right: 5),
                             child: Image.asset(
                               widget.featuredCardDetail.featuredCard_details
                                   .last.imageUrl,
@@ -111,6 +113,7 @@ class _ProjectDetailDialogState extends State<ProjectDetailDialog> {
                 children: [
                   Row(
                     children: [
+                      SizedBox(width: 5,),
                       const Text(
                         'Jina la mradi :',
                         style: TextStyle(
@@ -118,7 +121,7 @@ class _ProjectDetailDialogState extends State<ProjectDetailDialog> {
                         ),
                       ),
                       const SizedBox(
-                        width: 45,
+                        width: 5,
                       ),
                       Text(widget
                           .featuredCardDetail.featuredCard_details.last.title),
@@ -126,41 +129,20 @@ class _ProjectDetailDialogState extends State<ProjectDetailDialog> {
                   ),
                   Row(
                     children: [
-                      const Text(
-                        'Tarehe ya Kuanza :',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        width: 36,
-                      ),
+                      Icon(Icons.calendar_month,color: Colors.green,size: 13,),
                       Text(widget.featuredCardDetail.featuredCard_details.last
                           .startDate),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Text('Tarehe ya Kumalizika :',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        width: 36,
-                      ),
+                          SizedBox(width: 5,),
+                          Icon(Icons.calendar_month,color: Colors.red,size: 13,),
                       Text(widget.featuredCardDetail.featuredCard_details.last
-                          .endDate),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        'Eneo la Mradi',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        width: 36,
-                      ),
-                      Text(widget.featuredCardDetail.featuredCard_details.last
+                          .endDate,style: TextStyle(fontSize: 13),),
+                          SizedBox(width: 5,),
+                           Text(widget.featuredCardDetail.featuredCard_details.last
                           .projectLocation),
                     ],
-                  )
+                  ),
+                  
+                  
                 ],
               ),
             ),
@@ -264,7 +246,7 @@ class _ProjectDetailDialogState extends State<ProjectDetailDialog> {
                                 content: SizedBox(
                                   height: 500,
                                   width: double.infinity,
-                                  child: uzaHisaWidget(),
+                                  child: MiadiWidget(),
                                 ),
                               );
                             });
@@ -288,6 +270,23 @@ class _ProjectDetailDialogState extends State<ProjectDetailDialog> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Styles.primaryColor,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Styles.lightCOlor,
+          selectedItemColor: Styles.whiteColor,
+          showUnselectedLabels: true,
+          showSelectedLabels: true,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Nyumbani'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.payments), label: 'Biashara'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.business_center), label: 'Miradi'),
+            BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Siasa'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: 'Mpangilio'),
+          ]),
     );
   }
 }

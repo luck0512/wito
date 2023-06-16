@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:wito_app/themes/colors.dart';
 
-class TaasisiScreen extends StatefulWidget {
-  const TaasisiScreen({super.key});
+class SiasaScreen extends StatefulWidget {
+  const SiasaScreen({super.key});
 
   @override
-  State<TaasisiScreen> createState() => _TaasisiScreenState();
+  State<SiasaScreen> createState() => _SiasaScreenState();
 }
 
-class _TaasisiScreenState extends State<TaasisiScreen> {
+class _SiasaScreenState extends State<SiasaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Styles.primaryColor,
+        elevation: 0,
+        title: Text("Siasa"),
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.wallet)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,6 +50,5 @@ class _TaasisiScreenState extends State<TaasisiScreen> {
         ),
       ),
     );
-
   }
 }

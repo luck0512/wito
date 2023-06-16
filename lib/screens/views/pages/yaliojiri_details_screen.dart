@@ -83,7 +83,26 @@ class _YaliojiriDetailScreenState extends State<YaliojiriDetailScreen> {
                 ],
               ),
             ),
+            
           ],
-        ));
+        ),
+         bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Styles.primaryColor,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Styles.lightCOlor,
+          selectedItemColor: Styles.whiteColor,
+          showUnselectedLabels: true,
+          showSelectedLabels: true,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Nyumbani'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.payments), label: 'Biashara'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.business_center), label: 'Miradi'),
+            BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Siasa'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: 'Mpangilio'),
+          ]),
+        );
   }
 }

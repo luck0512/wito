@@ -1,4 +1,5 @@
 
+import 'miadi.dart';
 import 'nunua_hisa.dart';
 import 'package:flutter/material.dart';
 import 'package:wito_app/themes/colors.dart';
@@ -61,7 +62,7 @@ class _MiradiDetailDialogState extends State<MiradiDetailDialog> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                                top: 5, left: 5, right: 5),
+                                top: 15, left: 5, right: 5),
                             child: Image.asset(
                               'assets/images/Houses_3.jpg',
                               height: 100,
@@ -229,7 +230,7 @@ class _MiradiDetailDialogState extends State<MiradiDetailDialog> {
                                 content: SizedBox(
                                   height: 500,
                                   width: double.infinity,
-                                  child: uzaHisaWidget(),
+                                  child: MiadiWidget(),
                                 ),
                               );
                             });

@@ -18,23 +18,25 @@ class _MpangilioScreenState extends State<MpangilioScreen> {
       appBar: AppBar(
         backgroundColor: Styles.primaryColor,
         elevation: 0,
-      title: const Text('Mipangilio'),
+      title: Text('Mipangilio'),
       
       ),
       backgroundColor: Styles.whiteColor,
       body: Padding(
         padding: const EdgeInsets.only(top: 0),
-        child: ListView(
-          padding: const EdgeInsets.all(9),
-          physics: const BouncingScrollPhysics(),
-          children: [
-            Container(
-              height: 4,
-            ),
-            userTile(),
-            // divider(),
-            colorTiles()
-          ],
+        child: Container(
+          child: ListView(
+            padding: const EdgeInsets.all(9),
+            physics: const BouncingScrollPhysics(),
+            children: [
+              Container(
+                height: 4,
+              ),
+              userTile(),
+              // divider(),
+              colorTiles()
+            ],
+          ),
         ),
       ),
     );
@@ -97,11 +99,8 @@ Widget colorTiles() {
       colorTile(Icons.info_outline, Styles.primaryColor, 'Kuhusu sisi'),
       colorTile(Icons.privacy_tip, Styles.primaryColor, 'Sera ya faragha'),
       colorTile(Icons.approval, Styles.primaryColor, 'Vigezo na masharti'),
-      GestureDetector(
-          onTap: () {
-            
-          },
-          child: colorTile(Icons.logout, Styles.primaryColor, 'Kuondoka')),
+       colorTile(Icons.logout, Styles.primaryColor, 'Kuondoka'),
+       SizedBox(height: 90,),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
